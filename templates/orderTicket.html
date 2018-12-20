@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>车票预定</title>
+
+    <script src="/static/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <script src="/static/bootstrap.min.js"></script>
+    <script src="/static/ticket_order.js"></script>
+</head>
+<body>
+<div class="container-fluid" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-lg-1 col-lg-offset-1">
+            <img src="/static/logo.png" style="height: 50px;">
+        </div>
+        <div class="col-lg-9 col-lg-offset-1" style="margin-top:10px;height:40px;background-image: url('/static/train.png')">
+            <ul class="text-center list-inline" style="font-size: 18px;float: right;margin-right: 130px;">
+                <li style="margin-top: 5px;">车票预定</li>
+                <li></li>
+                <li>
+                    <img src="/static/chen.png" style="height: 40px;">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-lg-3 col-lg-offset-1">
+            <div class="panel panel-default" style="height: 500px;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ train_no }} ( {{ from_station }} --> {{ to_station }} {{ date }} )</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="ticket_order_form" onsubmit="return ticket_order();">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">12306账号名称</label>
+                            <input type="text" class="form-control" id="username" placeholder="用户名称" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">12306账号密码</label>
+                            <input type="password" class="form-control" id="password" placeholder="密码" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">乘车人名字</label>
+                            <input type="text" class="form-control" id="passengerName" placeholder="乘客名字" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">座位类型</label>
+                            <select class="form-control" id="seat_type">
+                                <option>二等座</option>
+                                <option>一等座</option>
+                                <option>特等座</option>
+                                <option>动卧</option>
+                                <option>无座</option>
+                                <option>硬座</option>
+                                <option>软座</option>
+                                <option>硬卧</option>
+                                <option>软卧</option>
+                                <option>高级软卧</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">接收通知的电话号码</label>
+                            <input type="text" class="form-control" id="informPhone" placeholder="该号码可接收订票结果">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit">提交信息并预定车票</button>
+                        <button type="button" class="btn btn-primary" onclick="scramble_ticket();">暂时无票持续抢票</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-7 ">
+            <div class="panel panel-default" style="height: 500px;" >
+                <div class="panel-body">
+                    <p><strong>订票结果：</strong></p>
+                    <ul class="list-unstyled" id="log">
+                        <li>请提交信息，如果有余票请直接订票，无票请抢票.....</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

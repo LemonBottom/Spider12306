@@ -1,0 +1,131 @@
+{% for i in data %}
+<tr id="ticket_3300000K5609" class="bgc">
+    <td colspan="4" width="370">
+        <div class="ticket-info clearfix" id="train_num_0">
+            <div class="train">
+                <div>
+                    <a title="点击查看停靠站信息" href="javascript:" class="number">{{ i.车次 }}</a>
+                </div>
+                <span class="lookup" onclick="showTicketPrice(this)">
+                    <span style="display:none;">查看票价</span>
+                    <b title="查看票价"></b>
+                </span>
+            </div>
+            <div class="cdz">
+                <strong>{{ i.出发站 }}</strong>
+                <strong>{{ i.到达站 }}</strong>
+            </div>
+            <div class="cds">
+                <strong class="start-t">{{ i.出发时间 }}</strong>
+                <strong class="color999">{{ i.到站时间 }}</strong>
+            </div>
+            <div class="ls" id="3300000K5609_ls">
+                <strong>{{ i.历经时间 }}</strong>
+            </div>
+        </div>
+    </td>
+
+    {% if i.特等座 == '' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">--
+    {% elif i.特等座 == '有' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="yes">有
+    {% elif i.特等座 == '无' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">无
+    {% else %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="t-num">{{ i.特等座 }}
+    {% endif %}
+    </td>
+
+    {% if i.一等座 == '' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">--
+    {% elif i.一等座 == '有' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="yes">有
+    {% elif i.一等座 == '无' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">无
+    {% else %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="t-num">{{ i.一等座 }}
+    {% endif %}
+    </td>
+
+    {% if i.二等座 == '' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">--
+    {% elif i.二等座 == '有' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="yes">有
+    {% elif i.二等座 == '无' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">无
+    {% else %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="t-num">{{ i.二等座 }}
+    {% endif %}
+    </td>
+
+    {% if i.高级软卧 == '' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">--
+    {% elif i.高级软卧 == '有' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="yes">有
+    {% elif i.高级软卧 == '无' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">无
+    {% else %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="t-num">{{ i.高级软卧 }}
+    {% endif %}
+    </td>
+
+    {% if i.软卧 == '' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">--
+    {% elif i.软卧 == '有' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="yes">有
+    {% elif i.软卧 == '无' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">无
+    {% else %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="t-num">{{ i.软卧 }}
+    {% endif %}
+    </td>
+
+    <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">--</td>
+
+    {% if i.硬卧 == '' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">--
+    {% elif i.硬卧 == '有' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="yes">有
+    {% elif i.硬卧 == '无' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">无
+    {% else %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="t-num">{{ i.硬卧 }}
+    {% endif %}
+    </td>
+
+    <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">--</td>
+
+    {% if i.硬座 == '' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">--
+    {% elif i.硬座 == '有' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="yes">有
+    {% elif i.硬座 == '无' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">无
+    {% else %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="t-num">{{ i.硬座 }}
+    {% endif %}
+    </td>
+
+    {% if i.无座 == '' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">--
+    {% elif i.无座 == '有' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="yes">有
+    {% elif i.无座 == '无' %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">无
+    {% else %}
+        <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)" class="t-num">{{ i.无座 }}
+    {% endif %}
+    </td>
+    <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">--</td>
+        {% if i.预定 == 'Y' %}
+            <td align="center" width="80" class="no-br">
+            <a href="#" class="btn72" style="background: url('/static/bg_btn.png') repeat-x;"
+            onclick="order('{{ i.日期 }}', '{{ i.出发站 }}', '{{ i.到达站 }}', '{{ i.车次 }}');">预定</a>
+        {% else %}
+            <td align="center" width="80" class="no-br">列车停运
+        {% endif %}
+    </td>
+</tr>
+{% empty %}
+    <tr>抱歉，没有搜索结果。</tr>
+{% endfor %}

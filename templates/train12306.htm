@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- saved from url=(0134)https://kyfw.12306.cn/otn/leftTicket/init?linktypeid=dc&fs=%E5%8C%97%E4%BA%AC,BJP&ts=%E9%9E%8D%E5%B1%B1,AST&date=2018-11-24&flag=N,N,Y -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css" title="audiojs">        .audiojs audio { position: absolute; left: -1px; }         .audiojs { width: 460px; height: 36px; background: #404040; overflow: hidden; font-family: monospace; font-size: 12px;           background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #444), color-stop(0.5, #555), color-stop(0.51, #444), color-stop(1, #444));           background-image: -moz-linear-gradient(center top, #444 0%, #555 50%, #444 51%, #444 100%);           -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);           -o-box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3); }         .audiojs .play-pause { width: 25px; height: 40px; padding: 4px 6px; margin: 0px; float: left; overflow: hidden; border-right: 1px solid #000; }         .audiojs p { display: none; width: 25px; height: 40px; margin: 0px; cursor: pointer; }         .audiojs .play { display: block; }         .audiojs .scrubber { position: relative; float: left; width: 280px; background: #5a5a5a; height: 14px; margin: 10px; border-top: 1px solid #3f3f3f; border-left: 0px; border-bottom: 0px; overflow: hidden; }         .audiojs .progress { position: absolute; top: 0px; left: 0px; height: 14px; width: 0px; background: #ccc; z-index: 1;           background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ccc), color-stop(0.5, #ddd), color-stop(0.51, #ccc), color-stop(1, #ccc));           background-image: -moz-linear-gradient(center top, #ccc 0%, #ddd 50%, #ccc 51%, #ccc 100%); }         .audiojs .loaded { position: absolute; top: 0px; left: 0px; height: 14px; width: 0px; background: #000;           background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #222), color-stop(0.5, #333), color-stop(0.51, #222), color-stop(1, #222));           background-image: -moz-linear-gradient(center top, #222 0%, #333 50%, #222 51%, #222 100%); }         .audiojs .time { float: left; height: 36px; line-height: 36px; margin: 0px 0px 0px 6px; padding: 0px 6px 0px 12px; border-left: 1px solid #000; color: #ddd; text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5); }         .audiojs .time em { padding: 0px 2px 0px 0px; color: #f9f9f9; font-style: normal; }         .audiojs .time strong { padding: 0px 0px 0px 2px; font-weight: normal; }         .audiojs .error-message { float: left; display: none; margin: 0px 10px; height: 36px; width: 400px; overflow: hidden; line-height: 36px; white-space: nowrap; color: #fff;           text-overflow: ellipsis; -o-text-overflow: ellipsis; -icab-text-overflow: ellipsis; -khtml-text-overflow: ellipsis; -moz-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; }         .audiojs .error-message a { color: #eee; text-decoration: none; padding-bottom: 1px; border-bottom: 1px solid #999; white-space: wrap; }                 .audiojs .play { background: url("undefinedplayer-graphics.gif") -2px -1px no-repeat; }         .audiojs .loading { background: url("undefinedplayer-graphics.gif") -2px -31px no-repeat; }         .audiojs .error { background: url("undefinedplayer-graphics.gif") -2px -61px no-repeat; }         .audiojs .pause { background: url("undefinedplayer-graphics.gif") -2px -91px no-repeat; }                 .playing .play, .playing .loading, .playing .error { display: none; }         .playing .pause { display: block; }                 .loading .play, .loading .pause, .loading .error { display: none; }         .loading .loading { display: block; }                 .error .time, .error .play, .error .pause, .error .scrubber, .error .loading { display: none; }         .error .error { display: block; }         .error .play-pause p { cursor: auto; }         .error .error-message { display: block; }</style>
+    <link href="/static/validation.css" rel="stylesheet">
+    <link href="/static/common_css.css" rel="stylesheet">
+    <!-- js i18n -->
+    <!-- jquery validation i18n -->
+    <!-- head and footer -->
+    <script src="/static/GetJS" type="text/javascript"></script>
+    <title>中国铁路12306</title>
+    <!-- 双日历 -->
+    <link href="/static/WdatePicker.css" rel="stylesheet">
+    <link href="/static/WdatePicker.css" rel="stylesheet" type="text/css">
+    <link href="/static/queryLeftTicket_css.css" rel="stylesheet">
+    <link href="/static/queryLeftTicket_end_css.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/static/captcha_css.css">
+    <link type="text/css" rel="stylesheet" href="/static/local.css">
+{#    <link href="/static/bootstrap.min.css" rel="stylesheet">#}
+{#    <script src="/static/bootstrap.min.js"></script>#}
+{#    自己建立的js#}
+    <script src="/static/jquery.min.js"></script>
+    <script src="/static/myself.js"></script>
+    <style type="text/css">
+        #float th{
+            background: url('/static/line_tlisth.png') right center no-repeat;
+        }
+    </style>
+</head>
+
+<body class="dhtmlx_winviewport  dhtmlx_winviewport  dhtmlx_winviewport dhtmlx_skin_dhx_terrace">
+
+<!--header start-->
+<div class="header">
+    <div class="wrapper"><!-- 头部内容 -->
+        <div class="header-con">
+            <h1 class="logo">
+                <img src="/static/logo.png" style="width:200px;">
+            </h1>
+            <div class="header-right" style="background-image:url('/static/train.png');">
+{#                <div class="header-search">#}
+{#                    <div class="search-bd">#}
+{#                    </div>#}
+
+                <ul class="header-menu">
+                    <li class="menu-item"><span style="float: left;font-size: 18px;">车票查询</span>
+
+                    </li>
+{#                <li id="J-header-login" class="menu-item menu-login">#}
+{#                您好，购票请<a id="myModel" name="g_href" data-type="2" data-href="resources/login.html" data-redirect="Y" href="javascript:;">登录</a>#}
+{#                </li>#}
+                    <li class="menu-item"></li>
+                    <li class="menu-item" style="float: right">
+                        <img src="/static/chen.png" style="width: 60px;">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 导航 -->
+<!--页面主体  开始-->
+<!--车票搜索框 开始-->
+<div class="content">
+    <div class="sear-box quick-sear-box">
+        <form id='searchForm' onsubmit="return search_form();" method="post" enctype="application/x-www-form-urlencoded">
+            {% csrf_token %}
+            <div class="dfc" id="dfc">
+                <ul>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+            </div>
+            <div class="s-info" id="place_area">
+                <ul>
+                    <li>
+                        <span class="label">
+                            <label id="fromStationText_label">出发地</label>
+                        </span>
+                        <div class="inp-w">
+                            <input type="text" id="fromStationText" class="inp-txt" value="">
+                        </div>
+                    </li>
+                    <li>
+                        <span class="label">
+                            <label id="toStationText_label"> 目的地</label>
+                        </span>
+                        <div class="inp-w">
+                            <input type="text" id="toStationText" class="inp-txt" value="" >
+                        </div>
+                    </li>
+                    <li>
+                        <span class="label"> 出发日</span>
+                        <div class="inp-w" style="z-index:1200">
+                            <input class="inp_selected" id="dateText">
+                        </div>
+                    </li>
+                    <li style="background: url('/static/line_sear.png') right center no-repeat;">
+                        <span class="label"> （格式：2000-01-01）</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="quick-s" style="margin-top:8px;">
+                <div class="btn-area" >
+                    <a href="#" onclick="$('#searchForm').submit();" id="query_ticket" class="btn92s" shape="rect" style="background: url('/static/bg_btn.png') repeat-x;">查询</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="sear-result" id="sear-result" style="display: block;">
+        <p id="notice">
+                请输入<strong>起始站，达到站，日期</strong>进行余票查询。
+        </p>
+    </div>
+    <div class="t-list" id="t-list">
+        <table>
+            <thead>
+                <tr class="th" id="float" style="background-image: url('/static/bg_tlisthd.png')" >
+                    <th width="90" colspan="1" rowspan="1" >车次</th>
+                    <th width="100" colspan="1" rowspan="1">出发站<br clear="none">
+                    到达站</th>
+                    <th width="82" colspan="1" rowspan="1" id="startendtime">
+                        <span class="b1" id="s_time" style="cursor: pointer;">出发时间</span>
+                        <br>
+                        <span class="b2" id="r_time" style="cursor: pointer;">到达时间</span>
+                    </th>
+                    <th width="82" colspan="1" rowspan="1"><span class="b3" id="l_s" style="cursor: pointer;">历时</span>
+                    </th>
+                    <th width="49" colspan="1" rowspan="1">商务座<br clear="none">
+                    特等座</th>
+                    <th width="49" colspan="1" rowspan="1">一等座</th>
+                    <th width="49" colspan="1" rowspan="1">二等座</th>
+                    <th width="49" colspan="1" rowspan="1">高级<br clear="none">
+                    软卧</th>
+                    <th width="49" colspan="1" rowspan="1">软卧</th>
+                    <th width="49" colspan="1" rowspan="1">动卧</th>
+                    <th width="49" colspan="1" rowspan="1">硬卧</th>
+                    <th width="49" colspan="1" rowspan="1">软座</th>
+                    <th width="49" colspan="1" rowspan="1">硬座</th>
+                    <th width="49" colspan="1" rowspan="1">无座</th>
+                    <th width="49" colspan="1" rowspan="1">其他</th>
+                    <th colspan="1" rowspan="1" style="background: none;">备注</th>
+                </tr>
+            </thead>
+            <tbody id="queryLeftTable">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
