@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <title>车票预定</title>
 
-    <script src="/static/jquery.min.js"></script>
-    <link rel="stylesheet" href="/static/bootstrap.min.css">
-    <script src="/static/bootstrap.min.js"></script>
-    <script src="/static/ticket_order.js"></script>
+    <script src="{{ STATIC_URL }}/static/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ STATIC_URL }}/static/bootstrap.min.css">
+    <script src="{{ STATIC_URL }}/static/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}/static/ticket_order.js"></script>
 </head>
 <body>
 <div class="container-fluid" style="margin-top: 20px;">
     <div class="row">
         <div class="col-lg-1 col-lg-offset-1">
-            <img src="/static/logo.png" style="height: 50px;">
+            <img src="{{ STATIC_URL }}/static/logo.png" style="height: 50px;">
         </div>
-        <div class="col-lg-9 col-lg-offset-1" style="margin-top:10px;height:40px;background-image: url('/static/train.png')">
+        <div class="col-lg-9 col-lg-offset-1" style="margin-top:10px;height:40px;background-image: url('{{ STATIC_URL }}/static/train.png')">
             <ul class="text-center list-inline" style="font-size: 18px;float: right;margin-right: 130px;">
                 <li style="margin-top: 5px;">车票预定</li>
                 <li></li>
                 <li>
-                    <img src="/static/chen.png" style="height: 40px;">
+                    <img src="{{ STATIC_URL }}/static/chen.png" style="height: 40px;">
                 </li>
             </ul>
         </div>

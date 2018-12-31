@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="{{ STATIC_URL }}/static/common_css.css" rel="stylesheet">
+
+    <title>中国铁路12306</title>
+    <link href="{{ STATIC_URL }}/static/WdatePicker.css" rel="stylesheet" type="text/css">
+    <link href="{{ STATIC_URL }}/static/queryLeftTicket_css.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}/static/captcha_css.css">
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}/static/local.css">
+    <script src="{{ STATIC_URL }}/static/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}/static/myself.js"></script>
+    <style type="text/css">
+        #float th{
+            background: url('{{ STATIC_URL }}/static/line_tlisth.png') right center no-repeat;
+        }
+    </style>
+</head>
+
+<body class="dhtmlx_winviewport  dhtmlx_winviewport  dhtmlx_winviewport dhtmlx_skin_dhx_terrace">
+
+<!--header start-->
+<div class="header">
+    <div class="wrapper"><!-- 头部内容 -->
+        <div class="header-con">
+            <h1 class="logo">
+                <img src="{{ STATIC_URL }}/static/logo.png" style="width:200px;">
+            </h1>
+            <div class="header-right" style="background-image:url('{{ STATIC_URL }}/static/train.png');">
+{#                <div class="header-search">#}
+{#                    <div class="search-bd">#}
+{#                    </div>#}
+
+                <ul class="header-menu">
+                    <li class="menu-item"><span style="float: left;font-size: 18px;">车票查询</span>
+
+                    </li>
+{#                <li id="J-header-login" class="menu-item menu-login">#}
+{#                您好，购票请<a id="myModel" name="g_href" data-type="2" data-href="resources/login.html" data-redirect="Y" href="javascript:;">登录</a>#}
+{#                </li>#}
+                    <li class="menu-item"></li>
+                    <li class="menu-item" style="float: right">
+                        <img src="{{ STATIC_URL }}/static/chen.png" style="width: 60px;">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 导航 -->
+<!--页面主体  开始-->
+<!--车票搜索框 开始-->
+<div class="content">
+    <div class="sear-box quick-sear-box">
+        <form id='searchForm' onsubmit="return search_form();" method="post" enctype="application/x-www-form-urlencoded">
+            {% csrf_token %}
+            <div class="dfc" id="dfc">
+                <ul>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+            </div>
+            <div class="s-info" id="place_area">
+                <ul>
+                    <li>
+                        <span class="label">
+                            <label id="fromStationText_label">出发地</label>
+                        </span>
+                        <div class="inp-w">
+                            <input type="text" id="fromStationText" class="inp-txt" value="">
+                        </div>
+                    </li>
+                    <li>
+                        <span class="label">
+                            <label id="toStationText_label"> 目的地</label>
+                        </span>
+                        <div class="inp-w">
+                            <input type="text" id="toStationText" class="inp-txt" value="" >
+                        </div>
+                    </li>
+                    <li>
+                        <span class="label"> 出发日</span>
+                        <div class="inp-w" style="z-index:1200">
+                            <input class="inp_selected" id="dateText">
+                        </div>
+                    </li>
+                    <li style="background: url('{{ STATIC_URL }}/static/line_sear.png') right center no-repeat;">
+                        <span class="label"> （格式：2000-01-01）</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="quick-s" style="margin-top:8px;">
+                <div class="btn-area" >
+                    <a href="#" onclick="$('#searchForm').submit();" id="query_ticket" class="btn92s" shape="rect" style="background: url('{{ STATIC_URL }}/static/bg_btn.png') repeat-x;">查询</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="sear-result" id="sear-result" style="display: block;">
+        <p id="notice">
+                请输入<strong>起始站，达到站，日期</strong>进行余票查询。
+        </p>
+    </div>
+    <div class="t-list" id="t-list">
+        <table>
+            <thead>
+                <tr class="th" id="float" style="background-image: url('{{ STATIC_URL }}/static/bg_tlisthd.png')" >
+                    <th width="90" colspan="1" rowspan="1" >车次</th>
+                    <th width="100" colspan="1" rowspan="1">出发站<br clear="none">
+                    到达站</th>
+                    <th width="82" colspan="1" rowspan="1" id="startendtime">
+                        <span class="b1" id="s_time" style="cursor: pointer;">出发时间</span>
+                        <br>
+                        <span class="b2" id="r_time" style="cursor: pointer;">到达时间</span>
+                    </th>
+                    <th width="82" colspan="1" rowspan="1"><span class="b3" id="l_s" style="cursor: pointer;">历时</span>
+                    </th>
+                    <th width="49" colspan="1" rowspan="1">商务座<br clear="none">
+                    特等座</th>
+                    <th width="49" colspan="1" rowspan="1">一等座</th>
+                    <th width="49" colspan="1" rowspan="1">二等座</th>
+                    <th width="49" colspan="1" rowspan="1">高级<br clear="none">
+                    软卧</th>
+                    <th width="49" colspan="1" rowspan="1">软卧</th>
+                    <th width="49" colspan="1" rowspan="1">动卧</th>
+                    <th width="49" colspan="1" rowspan="1">硬卧</th>
+                    <th width="49" colspan="1" rowspan="1">软座</th>
+                    <th width="49" colspan="1" rowspan="1">硬座</th>
+                    <th width="49" colspan="1" rowspan="1">无座</th>
+                    <th width="49" colspan="1" rowspan="1">其他</th>
+                    <th colspan="1" rowspan="1" style="background: none;">备注</th>
+                </tr>
+            </thead>
+            <tbody id="queryLeftTable">
+            <th>
+            <td colspan="15">请输入正确的搜索条件</td>
+            </th>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

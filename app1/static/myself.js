@@ -14,7 +14,7 @@ function search_form() {
              xhr.setRequestHeader("X-CSRFToken", $("input[name='csrfmiddlewaretoken']").val());
                 }
             });
-    $.ajax('/search_ajax/',{
+    $.ajax('search_ajax/',{
         data:{
             from_station: from_station,
             to_station: to_station,
@@ -23,16 +23,19 @@ function search_form() {
         dataType: "json",
         method: "post"
     }).done(function(data){
-                if(data.code===0 || data.code==='0'){
+                if(data.status===true || data.status==='true'){
                     $("#queryLeftTable").html(data.html);
                     $("#notice").html('<strong>'+from_station+'</strong> -->'+'<strong>'+to_station+'</strong> ('+date+') 共计'+data.quantity+'车次');
-                }else if(data.code===1 || data.code==='1'){
-                    $("#queryLeftTable").html('');
-                    $("#notice").html('<p style="color:red;float:left;">未查到相关信息！ 请检查<strong>城市名称</strong>是否正确！</p>');
-                }else if(data.code===2 || data.code==='2'){
-                    $("#queryLeftTable").html('');
-                    $("#notice").html('<p style="color:red;float:left;">未查到相关信息！ 请检查<strong>日期</strong>是否正确！</p>');
+                }else{
+                    $("#notice").html('<p style="color:red;float:left;">' + data.html + '</p>')
                 }
+                // else if(data.code===1 || data.code==='1'){
+                //     $("#queryLeftTable").html('');
+                //     $("#notice").html('<p style="color:red;float:left;">未查到相关信息！ 请检查<strong>城市名称</strong>是否正确！</p>');
+                // }else if(data.code===2 || data.code==='2'){
+                //     $("#queryLeftTable").html('');
+                //     $("#notice").html('<p style="color:red;float:left;">未查到相关信息！ 请检查<strong>日期</strong>是否正确！</p>');
+                // }
            }
     );
     return false;
@@ -45,7 +48,7 @@ function order(date, from_station, to_station, train_no) {
              xhr.setRequestHeader("X-CSRFToken", $("input[name='csrfmiddlewaretoken']").val());
                 }
             });
-    $.ajax('/ticket_order_ajax/',{
+    $.ajax('ticket_order_ajax/',{
         data:{
             from_station: from_station,
             to_station: to_station,
@@ -56,7 +59,7 @@ function order(date, from_station, to_station, train_no) {
         method: "post"
     }).done(function(data){
         if (data.status_code === "0" || data.status_code === 0){
-            window.location.href = "../ticket_order/";
+            window.location.href = "ticket_order/";
         }
     });
 }

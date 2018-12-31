@@ -119,7 +119,7 @@
     <td width="46" align="center" style="cursor: pointer;" onclick="showTicketPrice(this)">--</td>
         {% if i.预定 == 'Y' %}
             <td align="center" width="80" class="no-br">
-            <a href="#" class="btn72" style="background: url('/static/bg_btn.png') repeat-x;"
+            <a href="#" class="btn72" style="background: url('{{ STATIC_URL }}/static/bg_btn.png') repeat-x;"
             onclick="order('{{ i.日期 }}', '{{ i.出发站 }}', '{{ i.到达站 }}', '{{ i.车次 }}');">预定</a>
         {% else %}
             <td align="center" width="80" class="no-br">列车停运

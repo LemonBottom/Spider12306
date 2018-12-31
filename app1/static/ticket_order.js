@@ -11,7 +11,7 @@ function ticket_order(){
          xhr.setRequestHeader("X-CSRFToken", $("input[name='csrfmiddlewaretoken']").val());
             }
         });
-    $.ajax("/order_action_ajax/",{
+    $.ajax("order_action_ajax/",{
         data:{username: username, password: password, passenger_name: passenger_name, seat_type: seat_type, inform_phone:inform_phone},
         dataType: 'json',
         method: 'post'
@@ -47,7 +47,7 @@ function scramble_ticket(){
          xhr.setRequestHeader("X-CSRFToken", $("input[name='csrfmiddlewaretoken']").val());
             }
         });
-    $.ajax("/scramble_ticket_ajax/",{
+    $.ajax("scramble_ticket_ajax/",{
         data:{username: username, password: password, passenger_name: passenger_name, seat_type: seat_type, inform_phone:inform_phone},
         dataType: 'json',
         method: 'post'
