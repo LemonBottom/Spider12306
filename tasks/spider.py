@@ -256,7 +256,7 @@ class Spider:
         # init
         init_dc_url = "https://kyfw.12306.cn/otn/confirmPassenger/initDc?_json_att"
         init_dc = self._session.post(init_dc_url, headers=self._header)
-        print("init_dc结果: ", init_dc.text)
+        # print("init_dc结果: ", init_dc.text)
         global_repeat_submit_token = re.findall(re.compile("globalRepeatSubmitToken\ =\ \'(.+)\'\;"), init_dc.text)[0]
         # 车票信息
         ticket_info = re.findall(re.compile("ticketInfoForPassengerForm=({.+});"), init_dc.text)[0]
