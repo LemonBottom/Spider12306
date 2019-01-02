@@ -29,13 +29,6 @@ function search_form() {
                 }else{
                     $("#notice").html('<p style="color:red;float:left;">' + data.html + '</p>')
                 }
-                // else if(data.code===1 || data.code==='1'){
-                //     $("#queryLeftTable").html('');
-                //     $("#notice").html('<p style="color:red;float:left;">未查到相关信息！ 请检查<strong>城市名称</strong>是否正确！</p>');
-                // }else if(data.code===2 || data.code==='2'){
-                //     $("#queryLeftTable").html('');
-                //     $("#notice").html('<p style="color:red;float:left;">未查到相关信息！ 请检查<strong>日期</strong>是否正确！</p>');
-                // }
            }
     );
     return false;

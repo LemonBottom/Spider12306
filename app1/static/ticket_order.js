@@ -11,13 +11,13 @@ function ticket_order(){
          xhr.setRequestHeader("X-CSRFToken", $("input[name='csrfmiddlewaretoken']").val());
             }
         });
-    $.ajax("order_action_ajax/",{
+    $.ajax("action/",{
         data:{username: username, password: password, passenger_name: passenger_name, seat_type: seat_type, inform_phone:inform_phone},
         dataType: 'json',
         method: 'post'
     }).done(function (data) {
         if(data.status==="error"){
-             $("#log").html("<li>" + data.message + "</li>");
+             $("#log").html("<li>" + data.msg + "</li>");
         }else{
             $("#log").html(
             "<li>订单号码：" + data.订单号码 +"</li>" +
@@ -47,11 +47,11 @@ function scramble_ticket(){
          xhr.setRequestHeader("X-CSRFToken", $("input[name='csrfmiddlewaretoken']").val());
             }
         });
-    $.ajax("scramble_ticket_ajax/",{
+    $.ajax("scramble/",{
         data:{username: username, password: password, passenger_name: passenger_name, seat_type: seat_type, inform_phone:inform_phone},
         dataType: 'json',
         method: 'post'
     }).done(function (data) {
-         $("#log").html("<li>" + data.message + "</li>");
+         $("#log").html("<li>" + data.msg + "</li>");
     });
 }

@@ -80,14 +80,14 @@ class Spider:
         url = f"https://kyfw.12306.cn/otn/leftTicket/queryZ?leftTicketDTO.train_date={date}&leftTicket" + \
               f"DTO.from_station={src_code}&leftTicketDTO.to_station={dst_code}&purpose_codes=ADULT"
         # 添加代理
-        if not proxy:
+        if proxy:
             proxy = {"https": "https://" + proxy}
             # 不使用登录状态，以免被封号
             self._session = requests.session()
             if self.if_login:
                 self.if_login = False
         try:
-            r_json = self._session.get(url, proxy=proxy, headers=self._header)
+            r_json = self._session.get(url, proxies=proxy, headers=self._header)
             r_json.raise_for_status()
         except:
             raise Exception("检查日期是否有误，可预定30天内的车票")
@@ -365,15 +365,27 @@ class Spider:
         dc_queue = self._session.post(dc_queue_url, data=dc_queue_data, headers=self._header)
         print("DcQueue结果：" + dc_queue.text)
         # 完成订单，获取订单信息
-        complete_url = 'https://kyfw.12306.cn/otn/queryOrder/queryMyOrderNoComplete'
-        complete = self._session.get(complete_url, headers=self._header)
+        while True:
+            complete_url = 'https://kyfw.12306.cn/otn/queryOrder/queryMyOrderNoComplete?_json_att'
+            complete = self._session.get(complete_url, headers=self._header)
+            print(complete.text)
+            try:
+                order_info = json.loads(complete.text)['data']['orderDBList'][0]['tickets'][0]
+                print("order_info结果: " + str(order_info))
+                return order_info
+            except KeyError:
+                time.sleep(1)
+
+    def info(self):
+        complete_url = 'https://kyfw.12306.cn/otn/queryOrder/queryMyOrderNoComplete?_json_att'
+        complete = self._session.post(complete_url, headers=self._header)
         print(complete.text)
         order_info = json.loads(complete.text)['data']['orderDBList'][0]['tickets'][0]
-        print("order_info结果: " + order_info)
+        print("order_info结果: " + str(order_info))
         return order_info
 
 
 if __name__ == "__main__":
     d = Spider()
-    d.login_in("*****", "*****")
-    d.order_ticket("D51", "北京", "鞍山", "2018-12-31", "二等座", "王晨")
+    d.login_in("17610272393", "bunengshuodemi53")
+    d.info()
