@@ -120,8 +120,8 @@ class Spider:
         :return:
         """
         # 打码平台账户
-        username = 'swningmeng'
-        password = 'wc1255679669'
+        username = '*****'
+        password = '*****'
         appid = 1
         appkey = '22cc5376925e9387a23cf797cb9ba745'
         filename = 'image.png'
@@ -387,5 +387,5 @@ class Spider:
 
 if __name__ == "__main__":
     d = Spider()
-    d.login_in("17610272393", "bunengshuodemi53")
+    d.login_in("*****", "******")
     d.info()
