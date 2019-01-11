@@ -86,18 +86,33 @@ def scramble(username, password, train_code, src, dst, date, seat_type, passenge
 	:param inform_phone: 接收短信通知的手机号
 	:return: 车票的信息
 	"""
+	d = Spider()
+	d.login_in(username, password)
 	while True:
-		# 最好手动找一个高速稳定可用代理，要不容易被12306封ip
-		# proxy = redis_server.srandmember(REDIS_KEY, 1)[0].decode("utf-8")
-		proxy = "116.228.107.82:80"
-		data = search(src, dst, date, proxy=proxy)
-		if isinstance(data, list):
-			for i in data:
-				print(i)
-				if train_code == i['车次'] and i['secretStr']:
-					order(username, password, train_code, src, dst, date, seat_type, passenger_name, inform_phone)
-		print('无票')
-		# time.sleep(0.5)
+		try:
+			data = d.search(src, dst, date)
+			if isinstance(data, list):
+				for i in data:
+					print(i['车次'], i['硬卧'], i['secretStr'])
+					if train_code == i['车次'] and i[seat_type] != '无':
+						result1 = d.order_ticket(i['secretStr'], src, dst, date, seat_type, passenger_name)
+						SendSMS(inform_phone, "订票成功！" + str(result1))
+						break
+			print('无票')
+		except Exception as E:
+			print(E)
+			print("网络异常")
+		time.sleep(0.5)
+	# while True:
+	# 	data = search(src, dst, date, proxy=proxy)
+	# 	if isinstance(data, list):
+	# 		for i in data:
+	# 			print(i)
+	# 			if train_code == i['车次'] and i['secretStr']:
+	# 				order(username, password, train_code, src, dst, date, seat_type, passenger_name, inform_phone)
+	# 	print('无票')
+	# 	time.sleep(0.5)
+
 
 
 

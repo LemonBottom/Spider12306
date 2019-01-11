@@ -11,6 +11,7 @@ import json
 import datetime
 from urllib.parse import unquote
 from tasks.yun_da_ma import YDMHttp
+from tasks.send_SMS import SendSMS
 
 
 class Spider:
@@ -89,7 +90,7 @@ class Spider:
         try:
             r_json = self._session.get(url, proxies=proxy, headers=self._header)
             r_json.raise_for_status()
-        except:
+        except Exception as E:
             raise Exception("检查日期是否有误，可预定30天内的车票")
         result_dic = json.loads(r_json.text)
         assert result_dic, "查询余票返回空数据"
@@ -120,8 +121,8 @@ class Spider:
         :return:
         """
         # 打码平台账户
-        username = '*****'
-        password = '*****'
+        username = 'swningmeng'
+        password = 'wc1255679669'
         appid = 1
         appkey = '22cc5376925e9387a23cf797cb9ba745'
         filename = 'image.png'
@@ -387,5 +388,16 @@ class Spider:
 
 if __name__ == "__main__":
     d = Spider()
-    d.login_in("*****", "******")
-    d.info()
+    d.login_in("17610272393", "bunengshuodemi53")
+    while True:
+        data = d.search("北京", "鞍山", "2019-02-01")
+        if isinstance(data, list):
+            for i in data:
+                print(i)
+                if "2549" == i['车次'] and i['硬卧'] != '无':
+                    result1 = d.order_ticket("2549", "北京", "鞍山", "2019-02-01", "硬卧", "王晨")
+                    SendSMS("17610272393", "订票成功！" + str(result1))
+                    result2 = d.order_ticket("2549", "北京", "鞍山", "2019-02-01", "硬卧", "袁家宝")
+                    SendSMS("17610272393", "订票成功！" + str(result2))
+        print('无票')
+
