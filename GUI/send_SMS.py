@@ -18,6 +18,3 @@ class SendSMS:
 		client.messages.create(from_='+16267905464', body=self.msg, to=self.to)
 
 
-if __name__ == '__main__':
-	SendSMS('17610272393', 'hahaha')
-
